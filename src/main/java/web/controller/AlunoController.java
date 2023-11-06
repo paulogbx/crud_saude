@@ -32,7 +32,7 @@ public class AlunoController {
 
 	@RequestMapping(value = "/adiciona", method = RequestMethod.POST)
 	public String adiciona(@Valid Aluno aluno, BindingResult result) {
-		if (result.hasErrors()) {
+		if (result.hasErrors() || dao.buscaPorMatricula(aluno.getMatricula()).size()>0) {
 			return "redirect:novo";
 		}
 
@@ -68,12 +68,13 @@ public class AlunoController {
 
 	@RequestMapping(value = "/altera", method = RequestMethod.POST)
 	public String altera(@Valid Aluno aluno, BindingResult result) {
-		if (result.hasErrors()) {
-			return "redirect:edita?id=" + aluno.getId();
-		}
+	    this.lista_alunos = dao.buscaPorMatricula(aluno.getMatricula());
 
-		dao.altera(aluno);
-		return "redirect:lista";
+	    if (result.hasErrors() || (this.lista_alunos.size() > 0 && this.lista_alunos.get(0).getId()!= aluno.getId())) {
+	        return "redirect:edita?id=" + aluno.getId();
+	    }
+
+	    dao.altera(aluno);
+	    return "redirect:lista";
 	}
-
 }

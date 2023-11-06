@@ -36,6 +36,11 @@ public class AlunoDao {
 		return manager.find(Aluno.class, id);
 	}
 
+	public List<Aluno> buscaPorMatricula(String matricula) {
+		return manager.createQuery("select a from Aluno a where a.matricula = :matricula", Aluno.class).setParameter("matricula", matricula)
+				.getResultList();
+	}
+	
 	public void remove(Long id) {
 		manager.createQuery("delete from Aluno c where c.id = :id").setParameter("id", id).executeUpdate();
 	}
