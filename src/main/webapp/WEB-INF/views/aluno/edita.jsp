@@ -6,15 +6,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Editar Curso</title>
+<title>Editar Aluno</title>
 
 <c:import url="../componentes/cabecalho.jsp" />
 
 <div class="p-5 mb-4 bg-light rounded-3">
 	<div class="container py-5">
-		<h1 class="display-5 fw-bold">Editar Curso</h1>
+		<h1 class="display-5 fw-bold">Editar Aluno</h1>
 		<p class="col-md-12 fs-4">Preencha o formulário abaixo para
-			realizar a alteração do curso no sistema.</p>
+			realizar a alteração do aluno no sistema.</p>
 	</div>
 </div>
 
@@ -25,22 +25,41 @@
 			<security:csrfInput />
 
 			<!-- ID -->
-			<input type="hidden" name="id" value="${curso.id}" required>
+			<input type="hidden" name="id" value="${aluno.id}" required>
 
 			<!-- NOME -->
 			<div class="form-group">
 				<label for="nome" class="col-form-label obrigatorio">Nome</label> <input
 					type="text" class="form-control" name="nome" autofocus
-					MAXLENGTH="255" required value="${curso.nome}">
+					MAXLENGTH="255" required value="${aluno.nome}">
 			</div>
 
+			<!-- EMAIL -->
+			<div class="form-group">
+				<label for="email" class="col-form-label obrigatorio">Email</label> <input
+					type="email" class="form-control" name="email" MAXLENGTH="255"
+					required value="${aluno.email}" > 
+			</div>
+
+			<!-- Matricula -->
+			<div class="form-group">
+				<label for="matricula" class="col-form-label obrigatorio">Matricula</label>
+				<input type="text" class="form-control" name="matricula"
+					MAXLENGTH="12" required value="${aluno.matricula}">
+			</div>
+
+			<!-- Telefone -->
+			<div class="form-group">
+				<label for="telefone" class="col-form-label obrigatorio">Telefone</label>
+				<input type="tel" class="form-control" name="telefone"
+					MAXLENGTH="14" value="${aluno.telefone}">
+			</div>
 
 			<div class="text-center">
 				<button type="submit" class="btn btn-primary btn-lg">
-					<i class="bi bi-arrow-clockwise"></i>
-					Atualizar
+					<i class="bi bi-arrow-clockwise"></i> Atualizar
 				</button>
-				<a href="<c:url value="/curso/lista" />"
+				<a href="<c:url value="/aluno/lista" />"
 					class="btn btn-secondary btn-lg"> <i class="bi bi-x"></i>
 					Cancelar
 				</a>

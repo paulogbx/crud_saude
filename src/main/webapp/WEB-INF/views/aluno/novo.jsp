@@ -6,15 +6,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cadastrar Curso</title>
+<title>Cadastrar Aluno</title>
 
 <c:import url="../componentes/cabecalho.jsp" />
 
 <div class="p-5 mb-4 bg-light rounded-3">
 	<div class="container py-5">
-		<h1 class="display-5 fw-bold">Cadastrar Curso</h1>
+		<h1 class="display-5 fw-bold">Cadastrar Aluno</h1>
 		<p class="col-md-12 fs-4">Preencha o formulário abaixo para
-			realizar o cadastro do curso no sistema.</p>
+			realizar o cadastro do aluno no sistema.</p>
 	</div>
 </div>
 
@@ -33,17 +33,23 @@
 
 			<!-- EMAIL -->
 			<div class="form-group">
-				<label for="nome" class="col-form-label obrigatorio">Email</label> <input
+				<label for="email" class="col-form-label obrigatorio">Email</label> <input
 					type="email" class="form-control" name="email" MAXLENGTH="255"
 					required>
 			</div>
 			
-						<!-- Matricula -->
+			<!-- Matricula -->
 			<div class="form-group">
-				<label for="nome" class="col-form-label obrigatorio">Matricula</label> <input
-					type="number" class="form-control" name="matricula" MAXLENGTH="255"
+				<label for="matricula" class="col-form-label obrigatorio">Matricula</label> <input
+					type="text" class="form-control" name="matricula" MAXLENGTH="12"
 					required>
 			</div>
+			
+			<!-- Telefone -->
+			<div class="form-group">
+				<label for="telefone" class="col-form-label obrigatorio">Telefone</label> <input
+					type="tel" class="form-control" name="telefone" MAXLENGTH="14">
+			</div>		
 
 			<div class="text-center">
 				<button type="submit" class="btn btn-primary btn-lg">

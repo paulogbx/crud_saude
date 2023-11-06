@@ -19,7 +19,7 @@
 	<header>
 		<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="<c:url value="/" />">EXTRACLASSE</a>
+				<a class="navbar-brand" href="<c:url value="/" />">Projeto setor saude</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarColor01"
 					aria-controls="navbarColor01" aria-expanded="false"
@@ -32,14 +32,14 @@
 							class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="<c:url value="/curso/novo" />">Curso</a>
+								<a class="dropdown-item" href="<c:url value="/aluno/novo" />">Aluno</a>
 								<a class="dropdown-item" href="#">Turma</a>
 							</div></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							href="#" role="button" aria-haspopup="true" aria-expanded="false">Relatórios</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="<c:url value="/curso/lista" />">Curso</a>
+								<a class="dropdown-item" href="<c:url value="/aluno/lista" />">Aluno</a>
 								<a class="dropdown-item" href="#">Turma</a>
 							</div></li>
 					</ul>
