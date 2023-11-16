@@ -47,7 +47,7 @@
 			
 			<!-- Telefone -->
 			<div class="form-group">
-				<label for="telefone" class="col-form-label obrigatorio">Telefone</label> <input
+				<label for="telefone" class="col-form-label ">Telefone</label> <input
 					type="tel" class="form-control" name="telefone" MAXLENGTH="14">
 			</div>		
 

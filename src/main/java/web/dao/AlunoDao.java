@@ -27,11 +27,6 @@ public class AlunoDao {
 		return manager.createQuery("select c from Aluno c order by c.id desc", Aluno.class).getResultList();
 	}
 
-	public List<Aluno> buscaPorNome(String nome) {
-		return manager.createQuery("select c from Aluno c where c.nome = :nome", Aluno.class).setParameter("nome", nome)
-				.getResultList();
-	}
-
 	public Aluno buscaPorId(Long id) {
 		return manager.find(Aluno.class, id);
 	}
