@@ -18,66 +18,61 @@ public class Profissional {
 
 	@NotNull
 	private String siape;
+	
+	@NotNull
+	private String email;
 
 	@NotNull
 	private String setor;
 
 	private Boolean status;
 
-
 	public Long getId() {
 		return id;
 	}
-
-
-	public String getNome() {
-		return nome;
-	}
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-
-	public String getSiape() {
-		return siape;
-	}
-
-
-	public void setSiape(String siape) {
-		this.siape = siape;
-	}
-
-
-	public String getSetor() {
-		return setor;
-	}
-
-
-	public void setSetor(String setor) {
-		this.setor = setor;
-	}
-
-
-	public Boolean getStatus() {
-		return status;
-	}
-
-
-	public void setStatus(Boolean status) {
-		this.status = status;
-	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	public String getNome() {
+		return nome;
+	}
 
-	public Object getMatricula() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getSiape() {
+		return siape;
+	}
+
+	public void setSiape(String siape) {
+		this.siape = siape;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSetor() {
+		return setor;
+	}
+
+	public void setSetor(String setor) {
+		this.setor = setor;
+	}
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}
 
 	

@@ -12,10 +12,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import web.dao.AtendimentoSaudeDao;
-import web.modelo.AtendimentoSaude;
+import web.dao.AtedimentoSaudeDao;
+import web.dao.ProfissionalDao;
+
 import web.modelo.AtendimentoSaude;
 import web.modelo.Profissional;
+
 
 @Transactional
 @Controller
@@ -25,7 +27,7 @@ public class AtendimentoSaudeController {
 	private List<AtendimentoSaude> lista_atendimento_saudes;
 
 	@Autowired
-	AtendimentoSaudeDao dao;
+	AtedimentoSaudeDao dao;
 
 	@RequestMapping("/novo")
 	public String atendimento_saude() {

@@ -33,6 +33,7 @@ public class ProfissionalController {
 	@RequestMapping(value = "/adiciona", method = RequestMethod.POST)
 	public String adiciona(@Valid Profissional profissional, BindingResult result) {
 		if (result.hasErrors() || dao.buscaPorSiape(profissional.getSiape()).size()>0) {
+			System.out.println(result);
 			return "redirect:novo";
 		}
 
