@@ -34,6 +34,8 @@
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="<c:url value="/aluno/novo" />">Aluno</a>
 								<a class="dropdown-item" href="<c:url value="/profissional/novo" />">Profissional</a>
+								<a class="dropdown-item" href="<c:url value="/atendimento_pedagogia/novo" />">Pedagogia</a>
+								<a class="dropdown-item" href="<c:url value="/atendimento_saude/novo" />">Saude</a>
 							</div></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
@@ -41,6 +43,8 @@
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="<c:url value="/aluno/lista" />">Aluno</a>
 								<a class="dropdown-item" href="<c:url value="/profissional/lista" />">Profissional</a>
+								<a class="dropdown-item" href="<c:url value="/atendimento_pedagogia/lista" />">Pedagogia</a>
+								<a class="dropdown-item" href="<c:url value="/atendimento_saude/lista" />">Saude</a>
 							</div></li>
 					</ul>
 				</div>

@@ -1,5 +1,7 @@
 package web.modelo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -33,16 +35,32 @@ public class AtendimentoPedagogia {
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern = "HH:mm")
 	private Date horario_final;
-
+	
 	@NotNull
-	private String indisciplina;
+	private Boolean dificuldade;
+	
+	@NotNull
+	private Boolean ausencia;
+	
+	@NotNull
+	private Boolean relation;
+	
+	@NotNull
+	private String outros;
+	
+	@NotNull
+	private Boolean indisciplina;
 
 	@NotNull
 	private String exposicao_motivos;
 
 	@NotNull
 	private String encaminhamento;
-
+	@NotNull
+	private Long idAluno;
+	@NotNull
+	private Long idProfissional;
+	
 	private Boolean status;
 
 	public Long getId() {
@@ -57,8 +75,16 @@ public class AtendimentoPedagogia {
 		return data;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setData(String dateString) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date parsedDate = null;
+		try {
+			parsedDate = dateFormat.parse(dateString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.data = parsedDate;
 	}
 
 	public Date getHorario_inicial() {
@@ -77,11 +103,11 @@ public class AtendimentoPedagogia {
 		this.horario_final = horario_final;
 	}
 
-	public String getIndisciplina() {
+	public @NotNull Boolean getIndisciplina() {
 		return indisciplina;
 	}
 
-	public void setIndisciplina(String indisciplina) {
+	public void setIndisciplina(@NotNull Boolean indisciplina) {
 		this.indisciplina = indisciplina;
 	}
 
@@ -107,6 +133,54 @@ public class AtendimentoPedagogia {
 
 	public void setStatus(Boolean status) {
 		this.status = status;
+	}
+
+	public Boolean getDificuldade() {
+		return dificuldade;
+	}
+
+	public void setDificuldade(Boolean dificuldade) {
+		this.dificuldade = dificuldade;
+	}
+
+	public Boolean getAusencia() {
+		return ausencia;
+	}
+
+	public void setAusencia(Boolean ausencia) {
+		this.ausencia = ausencia;
+	}
+
+	public String getOutros() {
+		return outros;
+	}
+
+	public void setOutros(String outros) {
+		this.outros = outros;
+	}
+
+	public Boolean getRelation() {
+		return relation;
+	}
+
+	public void setRelation(Boolean relation) {
+		this.relation = relation;
+	}
+
+	public Long getIdAluno() {
+		return idAluno;
+	}
+
+	public void setIdAluno(Long idAluno) {
+		this.idAluno = idAluno;
+	}
+
+	public Long getIdProfissional() {
+		return idProfissional;
+	}
+
+	public void setIdProfissional(Long idProfissional) {
+		this.idProfissional = idProfissional;
 	}
 
 }

@@ -1,5 +1,7 @@
 package web.modelo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -30,10 +32,31 @@ public class AtendimentoSaude {
 	private Date horario;
 
 	@NotNull
-	private Boolean possui_problema;
+	private String possui_problema;
 
 	@NotNull
-	private Boolean esse_problema_dificulta_o_aprendizado;
+	private String esse_problema_dificulta_o_aprendizado;
+	
+	@NotNull
+	private Long idAluno;
+	@NotNull
+	private Long idProfissional;
+
+	public Long getIdAluno() {
+		return idAluno;
+	}
+
+	public void setIdAluno(Long idAluno) {
+		this.idAluno = idAluno;
+	}
+
+	public Long getIdProfissional() {
+		return idProfissional;
+	}
+
+	public void setIdProfissional(Long idProfissional) {
+		this.idProfissional = idProfissional;
+	}
 
 	public Long getId() {
 		return id;
@@ -46,11 +69,18 @@ public class AtendimentoSaude {
 	public Date getData() {
 		return data;
 	}
-
-	public void setData(Date data) {
-		this.data = data;
+	
+	public void setData(String dateString) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date parsedDate = null;
+		try {
+			parsedDate = dateFormat.parse(dateString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.data = parsedDate;
 	}
-
 	public Date getHorario() {
 		return horario;
 	}
@@ -59,19 +89,19 @@ public class AtendimentoSaude {
 		this.horario = horario;
 	}
 
-	public Boolean getPossui_problema() {
+	public String getPossui_problema() {
 		return possui_problema;
 	}
 
-	public void setPossui_problema(Boolean possui_problema) {
+	public void setPossui_problema( String possui_problema) {
 		this.possui_problema = possui_problema;
 	}
 
-	public Boolean getEsse_problema_dificulta_o_aprendizado() {
+	public String getEsse_problema_dificulta_o_aprendizado() {
 		return esse_problema_dificulta_o_aprendizado;
 	}
 
-	public void setEsse_problema_dificulta_o_aprendizado(Boolean esse_problema_dificulta_o_aprendizado) {
+	public void setEsse_problema_dificulta_o_aprendizado( String esse_problema_dificulta_o_aprendizado) {
 		this.esse_problema_dificulta_o_aprendizado = esse_problema_dificulta_o_aprendizado;
 	}
 

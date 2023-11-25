@@ -24,7 +24,7 @@ public class AtedimentoSaudeDao {
 	}
 
 	public List<AtendimentoSaude> lista() {
-		return manager.createQuery("select c from AtendimentoPedagogia c order by c.id desc", AtendimentoSaude.class).getResultList();
+		return manager.createQuery("select c from AtendimentoSaude c order by c.id desc", AtendimentoSaude.class).getResultList();
 	}
 
 	public AtendimentoSaude buscaPorId(Long id) {
