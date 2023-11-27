@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- https://www.w3schools.com/tags/tag_meta.asp -->
@@ -13,13 +14,16 @@
 	href="<c:url value="/resources/vendor/data-table/css/datatables.min.css" />">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/sistema.css" />">
-	
+<script type="text/javascript"
+	src="<c:url value="/resources/vendor/jquery/jquery-3.7.0.min.js" />"></script>
+
 </head>
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="<c:url value="/" />">Projeto setor saude</a>
+				<a class="navbar-brand" href="<c:url value="/" />">Projeto setor
+					saude</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarColor01"
 					aria-controls="navbarColor01" aria-expanded="false"
@@ -33,18 +37,29 @@
 							href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="<c:url value="/aluno/novo" />">Aluno</a>
-								<a class="dropdown-item" href="<c:url value="/profissional/novo" />">Profissional</a>
-								<a class="dropdown-item" href="<c:url value="/atendimento_pedagogia/novo" />">Pedagogia</a>
-								<a class="dropdown-item" href="<c:url value="/atendimento_saude/novo" />">Saude</a>
+								<a class="dropdown-item"
+									href="<c:url value="/profissional/novo" />">Profissional</a>
+							</div></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+							href="#" role="button" aria-haspopup="true" aria-expanded="false">Atendimento</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item"
+									href="<c:url value="/atendimento_pedagogia/novo" />">Pedagogia</a>
+								<a class="dropdown-item"
+									href="<c:url value="/atendimento_saude/novo" />">Saude</a>
 							</div></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							href="#" role="button" aria-haspopup="true" aria-expanded="false">Relatórios</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="<c:url value="/aluno/lista" />">Aluno</a>
-								<a class="dropdown-item" href="<c:url value="/profissional/lista" />">Profissional</a>
-								<a class="dropdown-item" href="<c:url value="/atendimento_pedagogia/lista" />">Pedagogia</a>
-								<a class="dropdown-item" href="<c:url value="/atendimento_saude/lista" />">Saude</a>
+								<a class="dropdown-item"
+									href="<c:url value="/profissional/lista" />">Profissional</a> <a
+									class="dropdown-item"
+									href="<c:url value="/atendimento_pedagogia/lista" />">Pedagogia</a>
+								<a class="dropdown-item"
+									href="<c:url value="/atendimento_saude/lista" />">Saude</a>
 							</div></li>
 					</ul>
 				</div>

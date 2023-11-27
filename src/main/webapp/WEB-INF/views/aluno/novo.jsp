@@ -33,23 +33,31 @@
 
 			<!-- EMAIL -->
 			<div class="form-group">
-				<label for="email" class="col-form-label obrigatorio">Email</label> <input
-					type="email" class="form-control" name="email" MAXLENGTH="255"
-					required>
+				<label for="email" class="col-form-label obrigatorio">Email</label>
+				<input type="email" class="form-control" name="email"
+					MAXLENGTH="255" required>
 			</div>
-			
+
 			<!-- Matricula -->
 			<div class="form-group">
-				<label for="matricula" class="col-form-label obrigatorio">Matricula</label> <input
-					type="text" class="form-control" name="matricula" MAXLENGTH="12"
-					required>
+				<label for="matricula" class="col-form-label obrigatorio">Matricula</label>
+				<input type="text" class="form-control" name="matricula"
+					MAXLENGTH="12" required>
 			</div>
-			
+
 			<!-- Telefone -->
 			<div class="form-group">
 				<label for="telefone" class="col-form-label ">Telefone</label> <input
 					type="tel" class="form-control" name="telefone" MAXLENGTH="14">
-			</div>		
+			</div>
+
+			<div class="form-group">
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" id="status" checked
+						name="status"> <label class="form-check-label"
+						for="status">Ativo</label>
+				</div>
+			</div>
 
 			<div class="text-center">
 				<button type="submit" class="btn btn-primary btn-lg">

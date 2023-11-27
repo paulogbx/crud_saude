@@ -22,11 +22,11 @@
 						</tr>
 						<tr>
 							<th>Aluno</th>
-							<td style="font-weight: bold; color: blue;">${atendimento_pedagogia.idAluno}</td>
+							<td style="font-weight: bold; color: blue;">${atendimento_pedagogia.aluno.nome}</td>
 						</tr>
 						<tr>
 							<th>Profissional</th>
-							<td style="font-weight: bold; color: blue;">${atendimento_pedagogia.idProfissional}</td>
+							<td style="font-weight: bold; color: blue;">${atendimento_pedagogia.profissional.nome}</td>
 						</tr>
 						<tr>
 							<th>Data</th>

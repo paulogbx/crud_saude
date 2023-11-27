@@ -31,30 +31,37 @@
 			<div class="form-group">
 				<label for="nome" class="col-form-label obrigatorio">Nome</label> <input
 					type="text" class="form-control" name="nome" autofocus
-					MAXLENGTH="255" required value="${profissional.nome}">
+					MAXLENGTH="255" required>
 			</div>
 
 			<!-- EMAIL -->
 			<div class="form-group">
-				<label for="email" class="col-form-label obrigatorio">Email</label> <input
-					type="email" class="form-control" name="email" MAXLENGTH="255"
-					required value="${profissional.email}" > 
+				<label for="email" class="col-form-label obrigatorio">Email</label>
+				<input type="email" class="form-control" name="email"
+					MAXLENGTH="255" required>
 			</div>
 
-			<!-- Matricula -->
+			<!-- Siape -->
 			<div class="form-group">
-				<label for="matricula" class="col-form-label obrigatorio">Siape</label>
-				<input type="text" class="form-control" name="matricula"
-					MAXLENGTH="12" required value="${profissional.siape}">
+				<label for="siape" class="col-form-label obrigatorio">Siape</label>
+				<input type="text" class="form-control" name="siape" MAXLENGTH="12"
+					required>
 			</div>
-
-			<!-- Telefone -->
 			<div class="form-group">
-				<label for="telefone">Telefone</label>
-				<input type="tel" class="form-control" name="telefone"
-					MAXLENGTH="14" value="${profissional.telefone}">
+				<label for="setor" class="form-label obrigatorio">Setor</label> <select
+					class="form-select" name="setor">
+					<option>Saude</option>
+					<option>Pedagogia</option>
+				</select>
 			</div>
 
+			<div class="form-group">
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" id="status" checked
+						name="status"> <label class="form-check-label"
+						for="status">Ativo</label>
+				</div>
+			</div>
 			<div class="text-center">
 				<button type="submit" class="btn btn-primary btn-lg">
 					<i class="bi bi-arrow-clockwise"></i> Atualizar

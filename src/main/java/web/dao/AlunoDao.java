@@ -26,6 +26,10 @@ public class AlunoDao {
 	public List<Aluno> lista() {
 		return manager.createQuery("select c from Aluno c order by c.id desc", Aluno.class).getResultList();
 	}
+	
+	public List<Aluno> listaAlunosAtivos() {
+		return manager.createQuery("select c from Aluno c where c.status = true order by c.id desc", Aluno.class).getResultList();
+	}
 
 	public Aluno buscaPorId(Long id) {
 		return manager.find(Aluno.class, id);

@@ -23,6 +23,7 @@
 							<th scope="col">Email</th>
 							<th scope="col">Telefone</th>
 							<th scope="col">Matrícula</th>
+							<th scope="col">Status</th>
 							<th scope="col">Ações</th>
 						</tr>
 					</thead>
@@ -35,6 +36,7 @@
 								<td>${aluno.email}</td>
 								<td>${aluno.telefone}</td>
 								<td>${aluno.matricula}</td>
+								<td>${aluno.status ? 'Ativo' : 'Inativo'}</td>
 								<td>
 									<!-- Exibir --> <a
 									href="<c:url value="/aluno/exibe?id=${aluno.id}"/>"

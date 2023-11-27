@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,13 +25,6 @@
 							<th scope="col">Data</th>
 							<th scope="col">Horário Inicial</th>
 							<th scope="col">Horário Final</th>
-							<th scope="col">Dificuldade</th>
-							<th scope="col">Ausência</th>
-							<th scope="col">Relação</th>
-							<th scope="col">Outros</th>
-							<th scope="col">Indisciplina</th>
-							<th scope="col">Motivos</th>
-							<th scope="col">Encaminhamento</th>
 							<th scope="col">Ações</th>
 						</tr>
 					</thead>
@@ -40,18 +34,12 @@
 							items="${atendimento_pedagogias}">
 							<tr>
 								<td scope="row">${atendimento_pedagogia.id}</td>
-								<td>${atendimento_pedagogia.idAluno}</td>
-								<td>${atendimento_pedagogia.idProfissional}</td>
-								<td>${atendimento_pedagogia.data}</td>
+								<td>${atendimento_pedagogia.aluno.nome}</td>
+								<td>${atendimento_pedagogia.profissional.nome}</td>
+								<td><fmt:formatDate value="${atendimento_pedagogia.data}"
+										pattern="dd/MM/yyyy" /></td>
 								<td>${atendimento_pedagogia.horario_inicial}</td>
 								<td>${atendimento_pedagogia.horario_final}</td>
-								<td>${atendimento_pedagogia.dificuldade ? 'Sim' : 'Não'}</td>
-								<td>${atendimento_pedagogia.ausencia ? 'Sim' : 'Não'}</td>
-								<td>${atendimento_pedagogia.relation ? 'Sim' : 'Não'}</td>
-								<td>${atendimento_pedagogia.outros}</td>
-								<td>${atendimento_pedagogia.indisciplina ? 'Sim' : 'Não'}</td>
-								<td>${atendimento_pedagogia.exposicao_motivos}</td>
-								<td>${atendimento_pedagogia.encaminhamento}</td>
 								<td>
 									<!-- Exibir --> <a
 									href="<c:url value="/atendimento_pedagogia/exibe?id=${atendimento_pedagogia.id}"/>"

@@ -24,7 +24,7 @@ public class Aluno {
 
 	private String telefone;
 
-	private Boolean status;
+	private boolean status;
 
 	public Long getId() {
 		return id;
@@ -66,11 +66,11 @@ public class Aluno {
 		this.telefone = telefone;
 	}
 
-	public Boolean getStatus() {
+	public boolean isStatus() {
 		return status;
 	}
 
-	public void setStatus(Boolean status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 

@@ -36,9 +36,9 @@
 
 			<!-- EMAIL -->
 			<div class="form-group">
-				<label for="email" class="col-form-label obrigatorio">Email</label> <input
-					type="email" class="form-control" name="email" MAXLENGTH="255"
-					required value="${aluno.email}" > 
+				<label for="email" class="col-form-label obrigatorio">Email</label>
+				<input type="email" class="form-control" name="email"
+					MAXLENGTH="255" required value="${aluno.email}">
 			</div>
 
 			<!-- Matricula -->
@@ -50,9 +50,17 @@
 
 			<!-- Telefone -->
 			<div class="form-group">
-				<label for="telefone">Telefone</label>
-				<input type="tel" class="form-control" name="telefone"
-					MAXLENGTH="14" value="${aluno.telefone}">
+				<label for="telefone">Telefone</label> <input type="tel"
+					class="form-control" name="telefone" MAXLENGTH="14"
+					value="${aluno.telefone}">
+			</div>
+
+			<div class="form-group">
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" id="status" checked
+						name="status"> <label class="form-check-label"
+						for="status">Ativo</label>
+				</div>
 			</div>
 
 			<div class="text-center">

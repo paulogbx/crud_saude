@@ -1,13 +1,12 @@
 package web.modelo;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -23,7 +22,7 @@ public class AtendimentoPedagogia {
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date data;
 
 	@NotNull
@@ -35,33 +34,30 @@ public class AtendimentoPedagogia {
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern = "HH:mm")
 	private Date horario_final;
+
+	private boolean dificuldade;
+
+	private boolean ausencia;
+
+	private boolean relation;
 	
-	@NotNull
-	private Boolean dificuldade;
-	
-	@NotNull
-	private Boolean ausencia;
-	
-	@NotNull
-	private Boolean relation;
-	
-	@NotNull
+	private boolean indisciplina;
+
 	private String outros;
-	
-	@NotNull
-	private Boolean indisciplina;
 
 	@NotNull
 	private String exposicao_motivos;
 
 	@NotNull
 	private String encaminhamento;
+
 	@NotNull
-	private Long idAluno;
+	@ManyToOne
+	private Aluno aluno;
+
+	@ManyToOne
 	@NotNull
-	private Long idProfissional;
-	
-	private Boolean status;
+	private Profissional profissional;
 
 	public Long getId() {
 		return id;
@@ -75,16 +71,8 @@ public class AtendimentoPedagogia {
 		return data;
 	}
 
-	public void setData(String dateString) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date parsedDate = null;
-		try {
-			parsedDate = dateFormat.parse(dateString);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		this.data = parsedDate;
+	public void setData(Date data) {
+		this.data = data;
 	}
 
 	public Date getHorario_inicial() {
@@ -103,11 +91,43 @@ public class AtendimentoPedagogia {
 		this.horario_final = horario_final;
 	}
 
-	public @NotNull Boolean getIndisciplina() {
+	public Boolean getDificuldade() {
+		return dificuldade;
+	}
+
+	public void setDificuldade(Boolean dificuldade) {
+		this.dificuldade = dificuldade;
+	}
+
+	public Boolean getAusencia() {
+		return ausencia;
+	}
+
+	public void setAusencia(Boolean ausencia) {
+		this.ausencia = ausencia;
+	}
+
+	public Boolean getRelation() {
+		return relation;
+	}
+
+	public void setRelation(Boolean relation) {
+		this.relation = relation;
+	}
+
+	public String getOutros() {
+		return outros;
+	}
+
+	public void setOutros(String outros) {
+		this.outros = outros;
+	}
+
+	public Boolean getIndisciplina() {
 		return indisciplina;
 	}
 
-	public void setIndisciplina(@NotNull Boolean indisciplina) {
+	public void setIndisciplina(Boolean indisciplina) {
 		this.indisciplina = indisciplina;
 	}
 
@@ -127,60 +147,20 @@ public class AtendimentoPedagogia {
 		this.encaminhamento = encaminhamento;
 	}
 
-	public Boolean getStatus() {
-		return status;
+	public Aluno getAluno() {
+		return aluno;
 	}
 
-	public void setStatus(Boolean status) {
-		this.status = status;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 
-	public Boolean getDificuldade() {
-		return dificuldade;
+	public Profissional getProfissional() {
+		return profissional;
 	}
 
-	public void setDificuldade(Boolean dificuldade) {
-		this.dificuldade = dificuldade;
-	}
-
-	public Boolean getAusencia() {
-		return ausencia;
-	}
-
-	public void setAusencia(Boolean ausencia) {
-		this.ausencia = ausencia;
-	}
-
-	public String getOutros() {
-		return outros;
-	}
-
-	public void setOutros(String outros) {
-		this.outros = outros;
-	}
-
-	public Boolean getRelation() {
-		return relation;
-	}
-
-	public void setRelation(Boolean relation) {
-		this.relation = relation;
-	}
-
-	public Long getIdAluno() {
-		return idAluno;
-	}
-
-	public void setIdAluno(Long idAluno) {
-		this.idAluno = idAluno;
-	}
-
-	public Long getIdProfissional() {
-		return idProfissional;
-	}
-
-	public void setIdProfissional(Long idProfissional) {
-		this.idProfissional = idProfissional;
+	public void setProfissional(Profissional profissional) {
+		this.profissional = profissional;
 	}
 
 }
