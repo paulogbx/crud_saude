@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -20,10 +21,9 @@ public class AtendimentoSaude {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date data;
 
 	@NotNull
@@ -38,25 +38,12 @@ public class AtendimentoSaude {
 	private String esse_problema_dificulta_o_aprendizado;
 	
 	@NotNull
-	private Long idAluno;
+	@ManyToOne
+	private Aluno aluno;
+
+	@ManyToOne
 	@NotNull
-	private Long idProfissional;
-
-	public Long getIdAluno() {
-		return idAluno;
-	}
-
-	public void setIdAluno(Long idAluno) {
-		this.idAluno = idAluno;
-	}
-
-	public Long getIdProfissional() {
-		return idProfissional;
-	}
-
-	public void setIdProfissional(Long idProfissional) {
-		this.idProfissional = idProfissional;
-	}
+	private Profissional profissional;
 
 	public Long getId() {
 		return id;
@@ -69,18 +56,11 @@ public class AtendimentoSaude {
 	public Date getData() {
 		return data;
 	}
-	
-	public void setData(String dateString) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date parsedDate = null;
-		try {
-			parsedDate = dateFormat.parse(dateString);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		this.data = parsedDate;
+
+	public void setData(Date data) {
+		this.data = data;
 	}
+
 	public Date getHorario() {
 		return horario;
 	}
@@ -93,7 +73,7 @@ public class AtendimentoSaude {
 		return possui_problema;
 	}
 
-	public void setPossui_problema( String possui_problema) {
+	public void setPossui_problema(String possui_problema) {
 		this.possui_problema = possui_problema;
 	}
 
@@ -101,8 +81,25 @@ public class AtendimentoSaude {
 		return esse_problema_dificulta_o_aprendizado;
 	}
 
-	public void setEsse_problema_dificulta_o_aprendizado( String esse_problema_dificulta_o_aprendizado) {
+	public void setEsse_problema_dificulta_o_aprendizado(String esse_problema_dificulta_o_aprendizado) {
 		this.esse_problema_dificulta_o_aprendizado = esse_problema_dificulta_o_aprendizado;
 	}
 
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public Profissional getProfissional() {
+		return profissional;
+	}
+
+	public void setProfissional(Profissional profissional) {
+		this.profissional = profissional;
+	}
+
+	
 }

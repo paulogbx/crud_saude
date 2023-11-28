@@ -112,14 +112,14 @@
 					</c:forEach>
 				</select>
 			</div>
-			
-					<div class="form-group">
-				<label for="profissional.id" class="form-label obrigatorio">Profissional</label> <select
-					class="form-select" name="profissional.id">
+
+			<div class="form-group">
+				<label for="profissional.id" class="form-label obrigatorio">Profissional</label>
+				<select class="form-select" name="profissional.id">
 
 					<c:forEach var="profissional" items="${profissionals}">
-						<option value="${profissional.id}">${profissional.siape} -
-							${profissional.nome}</option>
+						<option value="${profissional.id}">${profissional.siape}
+							- ${profissional.nome}</option>
 					</c:forEach>
 				</select>
 			</div>

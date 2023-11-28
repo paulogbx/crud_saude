@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import web.dao.AlunoDao;
 import web.dao.AtedimentoSaudeDao;
 import web.dao.ProfissionalDao;
 
@@ -28,9 +29,18 @@ public class AtendimentoSaudeController {
 
 	@Autowired
 	AtedimentoSaudeDao dao;
+	
+	@Autowired
+	AlunoDao dao_aluno;
+	
+	@Autowired
+	ProfissionalDao dao_profissional;
+
 
 	@RequestMapping("/novo")
-	public String atendimento_saude() {
+	public String atendimento_saude(Model model) {
+		model.addAttribute("alunos", dao_aluno.listaAlunosAtivos());
+		model.addAttribute("profissionals", dao_profissional.getBySection("saude"));
 		return "atendimento_saude/novo";
 	}
 
@@ -67,6 +77,8 @@ public class AtendimentoSaudeController {
 	@RequestMapping("/edita")
 	public String edita(Long id, Model model) {
 		model.addAttribute("atendimento_saude", dao.buscaPorId(id));
+		model.addAttribute("alunos",  dao_aluno.listaAlunosAtivos());
+		model.addAttribute("profissionals", dao_profissional.getBySection("saude"));
 		return "atendimento_saude/edita";
 	}
 

@@ -21,7 +21,6 @@
 							<th scope="col">ID</th>
 							<th scope="col">Nome</th>
 							<th scope="col">Email</th>
-							<th scope="col">Siape</th>
 							<th scope="col">Setor</th>
 							<th scope="col">Status</th>
 							<th scope="col">Ações</th>
@@ -34,7 +33,6 @@
 								<td scope="row">${profissional.id}</td>
 								<td>${profissional.nome}</td>
 								<td>${profissional.email}</td>
-								<td>${profissional.siape}</td>
 								<td>${profissional.setor}</td>
 								<td>${profissional.status ? 'Ativo' : 'Inativo'}</td>
 								<td>

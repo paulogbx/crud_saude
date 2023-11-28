@@ -31,25 +31,25 @@
 			<div class="form-group">
 				<label for="nome" class="col-form-label obrigatorio">Nome</label> <input
 					type="text" class="form-control" name="nome" autofocus
-					MAXLENGTH="255" required>
+					MAXLENGTH="255" required value="${profissional.nome}">
 			</div>
 
 			<!-- EMAIL -->
 			<div class="form-group">
 				<label for="email" class="col-form-label obrigatorio">Email</label>
 				<input type="email" class="form-control" name="email"
-					MAXLENGTH="255" required>
+					MAXLENGTH="255" required value="${profissional.email}">
 			</div>
 
 			<!-- Siape -->
 			<div class="form-group">
 				<label for="siape" class="col-form-label obrigatorio">Siape</label>
 				<input type="text" class="form-control" name="siape" MAXLENGTH="12"
-					required>
+					required value="${profissional.siape}">
 			</div>
-			<div class="form-group">
-				<label for="setor" class="form-label obrigatorio">Setor</label> <select
-					class="form-select" name="setor">
+			<div class="form-group"> ${profissional.setor}"
+				<label  for="setor"  class="form-label obrigatorio" >Setor</label> <select   
+					 class="form-select" name="setor"  >
 					<option>Saude</option>
 					<option>Pedagogia</option>
 				</select>

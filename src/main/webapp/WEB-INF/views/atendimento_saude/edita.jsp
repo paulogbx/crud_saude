@@ -29,24 +29,24 @@
 				required value="${atendimento_saude.id}">
 
 			<!-- NOME -->
-			<div class="form-group">
+			<div class="form-group col-md-6">
 				<label for="data" class="col-form-label obrigatorio">Data</label> <input
 					class="form-control" autofocus type="date" id="data" name="data"
-					required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-					value="${atendimento_saude.data}" /> <span class="validity"></span>
+					required value="${atendimento_saude.data}" />  <span
+					class="validity"></span>
 			</div>
 
-			<div class="form-group">
-				<label for="horario" class="col-form-label obrigatorio">Horário</label>
-				<input type="time" class="form-control" name="horario" autofocus
-					MAXLENGTH="255" required>
+			<div class="form-group col-md-3">
+				<label for="horario" class="col-form-label obrigatorio">Horário
+				</label> <input type="time" class="form-control" name="horario"
+					MAXLENGTH="255" required value="${atendimento_saude.horario}">
 			</div>
 
 			<div class="form-group">
 				<label for="possui_problema" class="form-label obrigatorio">Possui
 					problema?</label> <select class="form-select" name="possui_problema">
 					<option>Sim</option>
-					<option>Não</option>
+					<option>Nao</option>
 				</select>
 			</div>
 
@@ -61,15 +61,30 @@
 			</div>
 
 			<div class="form-group">
-				<label for="idAluno" class="col-form-label obrigatorio">Matrícula
-					do Aluno</label> <input type="number" class="form-control" name="idAluno"
-					autofocus MAXLENGTH="255" required>
+				<label for="aluno.id" class="form-label obrigatorio">Aluno</label> <select
+					class="form-select" name="aluno.id">
+
+					<c:forEach var="aluno" items="${alunos}">
+						<option value="${aluno.id}"
+							${aluno.id == atendimento_saude.aluno.id?'selected': '' }>${aluno.matricula}-
+							${aluno.nome}</option>
+					</c:forEach>
+				</select>
 			</div>
+
+
 			<div class="form-group">
-				<label for="idProfissional" class="col-form-label obrigatorio">Siape
-					do Profissional</label> <input type="number" class="form-control"
-					name="idProfissional" autofocus MAXLENGTH="255" required>
+				<label for="profissional.id" class="form-label obrigatorio">Profissional</label>
+				<select class="form-select" name="profissional.id">
+
+					<c:forEach var="profissional" items="${profissionals}">
+						<option value="${profissional.id}"
+							${profissional.id  == atendimento_saude.profissional.id?'selected': ''}>${profissional.siape}
+							- ${profissional.nome}</option>
+					</c:forEach>
+				</select>
 			</div>
+
 			<div class="text-center">
 				<button type="submit" class="btn btn-primary btn-lg">
 					<i class="bi bi-arrow-clockwise"></i> Atualizar

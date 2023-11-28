@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
+import web.modelo.Aluno;
 import web.modelo.Profissional;
 
 @Repository
@@ -29,6 +30,10 @@ public class ProfissionalDao {
 
 	public Profissional buscaPorId(Long id) {
 		return manager.find(Profissional.class, id);
+	}
+	
+	public List<Profissional> getBySection(String section) {
+		return manager.createQuery("select a from Profissional a where a.setor = :section order by a.id desc", Profissional.class).setParameter("section", section).getResultList();
 	}
 
 	public List<Profissional> buscaPorSiape(String siape) {

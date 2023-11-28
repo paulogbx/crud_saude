@@ -26,23 +26,23 @@ public class AtendimentoPedagogiaController {
 
 	@Autowired
 	AtendimentoPedagogiaDao dao;
-	
+
 	@Autowired
 	AlunoDao dao_aluno;
-	
+
 	@Autowired
 	ProfissionalDao dao_profissional;
 
 	@RequestMapping("/novo")
 	public String atendimento_pedagogia(Model model) {
 		model.addAttribute("alunos", dao_aluno.listaAlunosAtivos());
-		model.addAttribute("profissionals", dao_profissional.lista());
+		model.addAttribute("profissionals", dao_profissional.getBySection("pedagogia"));
 		return "atendimento_pedagogia/novo";
 	}
 
 	@RequestMapping(value = "/adiciona", method = RequestMethod.POST)
-	public String adiciona (@Valid AtendimentoPedagogia atendimento_pedagogia, BindingResult result) {
-		if (result.hasErrors() ) { 
+	public String adiciona(@Valid AtendimentoPedagogia atendimento_pedagogia, BindingResult result) {
+		if (result.hasErrors()) {
 			System.out.println(result);
 			return "redirect:novo";
 		}
@@ -74,20 +74,19 @@ public class AtendimentoPedagogiaController {
 	@RequestMapping("/edita")
 	public String edita(Long id, Model model) {
 		model.addAttribute("atendimento_pedagogia", dao.buscaPorId(id));
-		model.addAttribute("alunos",  dao_aluno.lista());
-		model.addAttribute("profissionals", dao_profissional.lista());
+		model.addAttribute("alunos", dao_aluno.listaAlunosAtivos());
+		model.addAttribute("profissionals", dao_profissional.getBySection("pedagogia"));
 		return "atendimento_pedagogia/edita";
 	}
 
 	@RequestMapping(value = "/altera", method = RequestMethod.POST)
 	public String altera(@Valid AtendimentoPedagogia atendimento_pedagogia, BindingResult result) {
 		System.out.println(result);
-	    if (result.hasErrors()) {
-	        return "redirect:edita?id=" + atendimento_pedagogia.getId();
-	    }
+		if (result.hasErrors()) {
+			return "redirect:edita?id=" + atendimento_pedagogia.getId();
+		}
 
-	    dao.altera(atendimento_pedagogia); 
-	    return "redirect:lista";
+		dao.altera(atendimento_pedagogia);
+		return "redirect:lista";
 	}
 }
-

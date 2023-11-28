@@ -23,8 +23,6 @@
 							<th scope="col">Profissional</th>
 							<th scope="col">Data</th>
 							<th scope="col">Horário</th>
-							<th scope="col">Possui Problema</th>
-							<th scope="col">Problema dificulta o aprendizado</th>
 							<th scope="col">Ações</th>
 						</tr>
 					</thead>
@@ -33,12 +31,10 @@
 						<c:forEach var="atendimento_saude" items="${atendimento_saudes}">
 							<tr>
 								<td scope="row">${atendimento_saude.id}</td>
-								<td>${atendimento_saude.idAluno}</td>
-								<td>${atendimento_saude.idProfissional}</td>
+								<td>${atendimento_saude.aluno.nome}</td>
+								<td>${atendimento_saude.profissional.nome}</td>
 								<td>${atendimento_saude.data}</td>
 								<td>${atendimento_saude.horario}</td>
-								<td>${atendimento_saude.possui_problema}</td>
-								<td>${atendimento_saude.esse_problema_dificulta_o_aprendizado}</td>
 								<td>
 									<!-- Exibir --> <a
 									href="<c:url value="/atendimento_saude/exibe?id=${atendimento_saude.id}"/>"
