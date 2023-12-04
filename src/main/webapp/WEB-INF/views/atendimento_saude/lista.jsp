@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,8 @@
 								<td scope="row">${atendimento_saude.id}</td>
 								<td>${atendimento_saude.aluno.nome}</td>
 								<td>${atendimento_saude.profissional.nome}</td>
-								<td>${atendimento_saude.data}</td>
+								<td><fmt:formatDate value="${atendimento_saude.data}"
+										pattern="dd/MM/yyyy" /></td>
 								<td>${atendimento_saude.horario}</td>
 								<td>
 									<!-- Exibir --> <a

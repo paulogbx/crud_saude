@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,8 @@
 <main>
 	<div class="container">
 		<div class="card border-light mb-3">
-			<div class="card-header">Exibe os dados dos atendimentos pedagogicos</div>
+			<div class="card-header">Exibe os dados dos atendimentos
+				pedagogicos</div>
 			<!-- Table -->
 			<div class="card-body">
 				<div class="table-responsive">
@@ -30,7 +32,8 @@
 						</tr>
 						<tr>
 							<th>Data</th>
-							<td>${atendimento_pedagogia.data}</td>
+							<td><fmt:formatDate value="${atendimento_pedagogia.data}"
+									pattern="dd/MM/yyyy" /></td>
 						</tr>
 						<tr>
 							<th>Horario inicial</th>
@@ -56,7 +59,7 @@
 							<th>Outros</th>
 							<td>${atendimento_pedagogia.outros}</td>
 						</tr>
-						
+
 						<tr>
 							<th>Indisciplina</th>
 							<td>${atendimento_pedagogia.indisciplina ? 'Sim' : 'Não'}</td>
@@ -79,17 +82,20 @@
 				class="btn btn-primary btn-lg"><i class="bi bi-plus-circle"></i>
 				Cadastrar</a>
 			<!-- Editar -->
-			<a href="<c:url value="/atendimento_pedagogia/edita?id=${atendimento_pedagogia.id}" />"
+			<a
+				href="<c:url value="/atendimento_pedagogia/edita?id=${atendimento_pedagogia.id}" />"
 				class="btn btn-warning btn-lg"><i class="bi bi-pencil-square"></i>
 				Editar </a>
 			<!-- Excluir -->
 			<button type="button" class="btn btn-danger btn-lg"
-				data-bs-toggle="modal" data-bs-target="#modal${atendimento_pedagogia.id}">
+				data-bs-toggle="modal"
+				data-bs-target="#modal${atendimento_pedagogia.id}">
 				<i class="bi bi-trash"></i> Excluir
 			</button>
 		</div>
 		<!-- Modal -->
-		<div class="modal fade" id="modal${atendimento_pedagogia.id}" tabindex="-1">
+		<div class="modal fade" id="modal${atendimento_pedagogia.id}"
+			tabindex="-1">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -101,8 +107,8 @@
 					</div>
 					<div class="modal-body">
 						<p>
-							Deseja realmente excluir o atendimento <br>ID (${atendimento_pedagogia.id})
-							?
+							Deseja realmente excluir o atendimento <br>ID
+							(${atendimento_pedagogia.id}) ?
 						</p>
 					</div>
 					<div class="modal-footer">

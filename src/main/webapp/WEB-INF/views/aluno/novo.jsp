@@ -48,7 +48,8 @@
 			<!-- Telefone -->
 			<div class="form-group">
 				<label for="telefone" class="col-form-label ">Telefone</label> <input
-					type="tel" class="form-control" name="telefone" MAXLENGTH="14">
+					type="tel" required placeholder="(xx)xxxx-xxxx"
+					class="form-control" name="telefone" MAXLENGTH="14">
 			</div>
 
 			<div class="form-group">
